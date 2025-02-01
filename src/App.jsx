@@ -16,6 +16,7 @@ function App() {
             <Header
                 displayBooks={displayBooks}
                 setDisplayBooks={setDisplayBooks}
+                books={books}
             />
 
             <div className={styles.container}>
