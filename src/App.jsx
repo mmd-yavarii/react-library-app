@@ -5,7 +5,9 @@ import styles from './App.module.css';
 
 import Header from './components/Header/Header.jsx';
 import Booklist from './components/BookList/BookList.jsx';
+import BookCard from './components/BookList/BookCard.jsx';
 import FavoriteList from './components/Favorite/FavoriteList.jsx';
+import FavoriteCard from './components/Favorite/FavoriteCard.jsx';
 
 function App() {
     const [favoriteBooksList, setFavoriteBooksList] = useState([]);
@@ -20,14 +22,26 @@ function App() {
             />
 
             <div className={styles.container}>
+                {/* show favorite books */}
                 {favoriteBooksList.length ? (
-                    <FavoriteList favoriteBooksList={favoriteBooksList} />
+                    <FavoriteList favoriteBooksList={favoriteBooksList}>
+                        {favoriteBooksList.map((item) => (
+                            <FavoriteCard info={item} key={item.id} />
+                        ))}
+                    </FavoriteList>
                 ) : null}
 
-                <Booklist
-                    displayBooks={displayBooks}
-                    setFavoriteBooksList={setFavoriteBooksList}
-                />
+                {/* show all book*/}
+                <Booklist>
+                    {displayBooks.map((item) => (
+                        <BookCard
+                            key={item.id}
+                            info={item}
+                            displayBooks={displayBooks}
+                            setFavoriteBooksList={setFavoriteBooksList}
+                        />
+                    ))}
+                </Booklist>
             </div>
         </>
     );

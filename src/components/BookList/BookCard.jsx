@@ -5,11 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
 
-function BookCard({
-    info: { image, title, author, language, pages, id },
-    displayBooks,
-    setFavoriteBooksList,
-}) {
+function BookCard({ info, displayBooks, setFavoriteBooksList }) {
+    const { image, title, author, language, pages, id } = info;
     const [isLiked, setIsLiked] = useState(false);
 
     // like and dislike handler
