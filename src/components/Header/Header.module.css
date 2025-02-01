@@ -1,0 +1,50 @@
+.header {
+    padding: 0.5em;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background2);
+    margin: 1em;
+}
+
+.header button {
+    background-color: transparent;
+    color: var(--text-color);
+    width: 2em;
+    height: 2em;
+    background-color: var(--them-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+.saerchBar input {
+    border-radius: 6px;
+    padding: 0.5em;
+    background-color: var(--inputs);
+    width: 100%;
+}
+
+.saerchBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    width: 20em;
+}
+
+@media (max-width: 500px) {
+    .header {
+        flex-direction: column;
+    }
+    .header h1 {
+        display: none;
+    }
+    .saerchBar {
+        width: 100%;
+    }
+    .saerchBar input {
+        width: 100%;
+    }
+}

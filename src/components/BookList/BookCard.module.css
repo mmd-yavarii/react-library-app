@@ -1,0 +1,41 @@
+.card {
+    border-radius: 10px;
+    min-width: 300px;
+    background-color: var(--background2);
+    margin: 0.5em 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    position: relative;
+}
+.card button {
+    background-color: transparent;
+    position: absolute;
+    right: 1.5em;
+    top: 1.5em;
+    font-size: 1.2rem;
+}
+
+.card img {
+    border-radius: 10px;
+    transform: scale(0.8);
+}
+
+.info {
+    display: flex;
+    gap: 0.5em;
+    flex-direction: column;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+
+.heartIcon {
+    color: red;
+    margin-right: 8px;
+}
