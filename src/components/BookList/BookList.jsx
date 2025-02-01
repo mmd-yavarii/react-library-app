@@ -1,10 +1,15 @@
 import BookCard from './BookCard.jsx';
 
-function Booklist({ books }) {
+function Booklist({ displayBooks, setFavoriteBooksList }) {
     return (
-        <div>
-            {books.map((item) => (
-                <BookCard key={item.id} info={item} />
+        <div style={{ width: '100%' }}>
+            {displayBooks.map((item) => (
+                <BookCard
+                    key={item.id}
+                    info={item}
+                    displayBooks={displayBooks}
+                    setFavoriteBooksList={setFavoriteBooksList}
+                />
             ))}
         </div>
     );

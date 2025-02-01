@@ -5,12 +5,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons';
 
-function BookCard({ info: { image, title, author, language, pages } }) {
+function BookCard({
+    info: { image, title, author, language, pages, id },
+    displayBooks,
+    setFavoriteBooksList,
+}) {
     const [isLiked, setIsLiked] = useState(false);
 
     // like and dislike handler
     function likeHandler() {
         setIsLiked((pre) => !pre);
+    }
+
+    // add to favorite list
+    function updateFavoriteStatus() {
+        if (isLiked) {
+            setFavoriteBooksList((pre) => pre.filter((i) => i.id != id));
+        } else {
+            const item = displayBooks.find((item) => item.id == id);
+            setFavoriteBooksList((pre) => [...pre, item]);
+        }
     }
 
     return (
@@ -26,7 +40,7 @@ function BookCard({ info: { image, title, author, language, pages } }) {
                 </div>
             </div>
 
-            <button>
+            <button onClick={updateFavoriteStatus}>
                 {isLiked ? (
                     <FontAwesomeIcon
                         icon={faSolidStar}
@@ -38,6 +52,7 @@ function BookCard({ info: { image, title, author, language, pages } }) {
                         icon={faRegularStar}
                         className="star-icon"
                         onClick={likeHandler}
+                        style={{ opacity: 0.4 }}
                     />
                 )}
             </button>
